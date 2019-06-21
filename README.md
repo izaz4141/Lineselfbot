@@ -43,7 +43,7 @@ GHOST HUNTER DEATH
 # git clone https://github.com/izaz4141/Lineselfbot
 # cd reymia
 # python rey.py
-
+ 
 INSTALL Di TERMUX :
 # pkg update
 # pkg install git
