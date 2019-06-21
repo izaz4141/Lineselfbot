@@ -1,84 +1,85 @@
 # REY SEBASTIAN
-# GHOST HUNTER DEATH
-# BOT PROTECT ANTI JS
-# 1 ADMIN + 4 ASIST
-# jangan gunakan untuk merugikan orang lain
-# jika ada yang ingin ditanyakan bisa add saya
-# id line saya: rey_tlangu
-# saling berbagi ilmu
-# YOUTUBE: https://www.youtube.com/channel/UCiaIqkq-haV6TTDbATDRIOQ
-#
-# GHDPROTECTION
-# CARA INSTALL BOTNYA ADA DI BAWAH
-# HARAP TELITI DALAM MENGINSTALL DAN MENULIS TEXTNYA
-# SALAH SATU HURUFPUN DAPAT MENYEBABKAN ERROR BOTNYA
+<hr><br>
+<br> GHOST HUNTER DEATH <br>
+ BOT PROTECT ANTI JS <br>
+ 1 ADMIN + 4 ASIST <br>
+ jangan gunakan untuk merugikan orang lain <br>
+ jika ada yang ingin ditanyakan bisa add saya <br>
+ id line saya: rey_tlangu <br>
+ saling berbagi ilmu <br>
+ YOUTUBE: https://www.youtube.com/channel/UCiaIqkq-haV6TTDbATDRIOQ <br>
 
-# GET TOKEN :
+ GHDPROTECTION
+ CARA INSTALL BOTNYA ADA DI BAWAH
+ HARAP TELITI DALAM MENGINSTALL DAN MENULIS TEXTNYA
+ SALAH SATU HURUFPUN DAPAT MENYEBABKAN ERROR BOTNYA
 
-# Gunakan bot dengan bijak ya
-# Bot ini menggunakan header IOSPAD
+ GET TOKEN :
+
+ Gunakan bot dengan bijak ya
+ Bot ini menggunakan header IOSPAD
 -
-# Cara Install Bot :
+ Cara Install Bot :
 
-# HEADER IOSPAD
+ HEADER IOSPAD
 
-# C9 SERVER/ VPS :
-# sudo apt-get update -y
-# sudo apt-get install git -
-# sudo apt-get install python3-pip -y
-# sudo pip3 install rsa
-# sudo pip3 install thrift==0.11.0
-# sudo pip3 install requests
-# sudo pip3 install pytz
-# sudo pip3 install bs4
-# sudo pip3 install gtts
-# sudo pip3 install googletrans
-# sudo pip3 install humanfriendly
-# sudo pip3 install goslate
-# sudo pip3 install pafy
-# sudo pip3 install wikipedia
-# sudo pip3 install tweepy
-# sudo pip3 install youtube_dl
-# git clone https://github.com/reysebastian/reymia
-# cd reymia
-# python rey.py
+ C9 SERVER/ VPS :
+ sudo apt-get update -y
+ sudo apt-get install git -y
+ sudo apt-get install python3-pip -y
+ sudo pip3 install rsa
+ sudo pip3 install thrift==0.11.0
+ sudo pip3 install requests
+ sudo pip3 install pytz
+ sudo pip3 install bs4
+ sudo pip3 install gtts
+ sudo pip3 install googletrans
+ sudo pip3 install humanfriendly
+ sudo pip3 install goslate
+ sudo pip3 install pafy
+ sudo pip3 install wikipedia
+ sudo pip3 install tweepy
+ sudo pip3 install youtube_dl
+ git clone https://github.com/izaz4141/Lineselfbot
+ cd reymia
+ python rey.py
 
-# INSTALL Di TERMUX :
-# pkg update
-# pkg install git
-# pkg install python3-pip
-# pip3 install rsa
-# pip3 install thrift==0.11.0
-# pip3 install requests
-# pip3 install bs4
-# pip3 install gtts
-# pip3 install beautifulsoup
-# pip3 install googletrans
-# pip3 install pafy
-# pip3 install humanfriendly
-# pip3 install goslate
-# pip3 install wikipedia
-# pip3 install youtube_dl
-# pip3 install tweepy
-# git clone https://github.com/reysebastian/reymia
-# cd reymia
-# python3 rey.py
+ INSTALL Di TERMUX :
+ pkg update
+ pkg install git
+ pkg install python3-pip
+ pip3 install rsa
+ pip3 install thrift==0.11.0
+ pip3 install requests
+ pip3 install bs4
+ pip3 install gtts
+ pip3 install beautifulsoup
+ pip3 install googletrans
+ pip3 install pafy
+ pip3 install humanfriendly
+ pip3 install goslate
+ pip3 install wikipedia
+ pip3 install youtube_dl
+ pip3 install tweepy
+ git clone https://github.com/izaz4141/Lineselfbot
+ cd reymia
+ python3 rey.py
 
-# Cara Menjalankan Bot Kembali :
+ Cara Menjalankan Bot Kembali :
 
-# Di C9 :
-# cd reymia
-# python3 rey.py
+ Di C9 :
+ cd reymia
+ python3 rey.py
 
-# Di Termux :
-# cd reymia
-# python3 rey.py
+ Di Termux :
+ cd reymia
+ python3 rey.py
 
 
-# EDITOR BY REY SEBASTIAN
+ EDITOR BY REY SEBASTIAN
 
-# Add My ID LINE : rey_tlangu
-# GHOST HUNTER DEATH TEAM BOT
+ Add My ID LINE : rey_tlangu
+ GHOST HUNTER DEATH TEAM BOT
 
 
  
