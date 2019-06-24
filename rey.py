@@ -1601,7 +1601,7 @@ def bot(op):
                                     kc.leaveGroup(i)
                                     cl.sendMessage(msg.to,"Berhasil keluar di grup " +str(ginfo.name))
 
-                        elif cmd == "fiendlist":
+                        elif cmd == "friendlist":
                           if wait["selfbot"] == True:
                             if msg._from in admin:
                                ma = ""
