@@ -129,11 +129,11 @@ wait = {
     "unsend":True,
     "sticker":False,
     "selfbot":True,
-    "mention":"ᴏʏ ᴅᴇᴋ!! ɴɢɪɴᴛɪᴘ ᴍᴜʟᴜ sɪʜ.. \nsɪɴɪ ᴍᴀsᴜᴋ..😂",
-    "Respontag":"jgn tag orang ganteng.. entar nafsu",
-    "welcome":"ᴡᴇʟᴄᴏᴍᴇ ʙᴀʙʏ.. ᴘʟᴇᴀsᴇ ᴄᴇᴋ ɴᴏᴛ ᴀɴᴅ ᴘʟᴀʏ ᴠɪᴅᴇᴏ ɪɴ ɴᴏᴛ",
-    "comment":"Ghd_Official hadir",
-    "message":"thanks dah add aku kak.. hehe",
+    "mention":"Ngintip mulu kak... join dong!!",
+    "Respontag":"Ada apa kak?" or "Apaan sih kaak >_<",
+    "welcome":"Welcome" or "Selamat Pagi",
+    "comment":"Hai",
+    "message":"Thanks dah add aku kak.. hehe",
     }
 
 read = {
@@ -153,6 +153,8 @@ myProfile = {
 	"statusMessage": "",
 	"pictureStatus": ""
 }
+
+blacklist = []
 
 with open('creator.json', 'r') as fp:
     creator = json.load(fp)
@@ -653,7 +655,6 @@ def helpbot():
                   "│" + "\n" + \
                   "╰────ஜ۩B-Bambang۩ஜ─────╯"
     return helpMessage2
-
 def bot(op):
     global time
     global ast
@@ -1593,6 +1594,7 @@ def bot(op):
                             cl.updateProfilePicture(path)
                             cl.sendMessage(msg.to,"ɪᴍᴀɢᴇ sᴜᴄᴄᴇss ᴄʜᴀɴɢᴇ")
 
+#========
                if msg.contentType == 0:
                     if Setmain["autoRead"] == True:
                         cl.sendChatChecked(msg.to, msg_id)
@@ -1611,7 +1613,6 @@ def bot(op):
                               sendMention1(msg.to, sender, "「 ʀᴇsᴜʟᴛ ᴠɪᴅᴇᴏs 」\nsᴇʟᴀᴍᴀᴛ ᴍᴇɴɪᴋᴍᴀᴛɪ ᴋᴀᴋ ", "\nᴡᴀɪᴛɪɴɢ ᴘʀᴏɢʀᴇss ᴠɪᴅᴇᴏs..")
                               cl.sendVideo(msg.to, videos[video])
                         for image in images:
-                         if msg._from in admin:
                            if text.lower() == image:
                               cl.sendImage(msg.to, images[image])
                         for audio in audios:
@@ -1620,6 +1621,10 @@ def bot(op):
                               sendMention1(msg.to, sender, "「 ʀᴇsᴜʟᴛ ᴍᴘ3 」\nsᴇʟᴀᴍᴀᴛ ᴍᴇɴɪᴋᴍᴀᴛɪ ᴋᴀᴋ ", "\nᴡᴀɪᴛɪɴɢ ᴘʀᴏɢʀᴇss ᴀᴜᴅɪᴏs..")
                               cl.sendAudio(msg.to, audios[audio])
                         cmd = command(text)
+
+               if msg._from in wait["blacklist"]:
+                        cl.sendMessage(msg.to, "maaf kakak telah diban >_<")
+               else:
                         if cmd == "$help":
                           if wait["selfbot"] == True:
                                 helpMessage = help()
@@ -1652,7 +1657,6 @@ def bot(op):
                                             
                         if cmd == "$help2":
                           if wait["selfbot"] == True:
-                            if msg._from in admin:
                                 helpMessage1 = public()
                                 veza = cl.getContact(mid)
                                 zx = ""
@@ -1673,7 +1677,6 @@ def bot(op):
 
                         if cmd == "$help3":
                           if wait["selfbot"] == True:
-                            if msg._from in admin:
                                 helpMessage2 = helpbot()
                                 veza = cl.getContact(mid)
                                 zx = ""
@@ -1753,8 +1756,7 @@ def bot(op):
                                 cl.sendMessage(msg.to, text, contentMetadata={'MENTION':str('{"MENTIONEES":'+json.dumps(zx2).replace(' ','')+'}')}, contentType=0)
 
                         elif cmd == "creator" or text.lower() == 'creator':
-                            if msg._from in admin:
-                                cl.sendMessage(msg.to,"Bot ini bangun dengan dirinya sendiri") 
+                                cl.sendMessage(msg.to,"Bot ini dibuat oleh kak /r/") 
                                 ma = ""
                                 for i in creator:
                                     ma = cl.getContact(i)
@@ -1770,7 +1772,7 @@ def bot(op):
                           if wait["selfbot"] == True:
                             if msg._from in admin:
                                cl.sendContact(to, sender)
-                               sendMention(to, "╭────ஜ۩Yours Truly۩ஜ─────╮\n│✆「O」 \n│✆「O」 \n│✆「ᴄᴏᴍᴇ ᴏɴ ᴏʀᴅᴇʀ」 \n│✆「B-Bambang」\n│✆「ᴜsᴇʀ: @! 」\n╰────ஜ۩Yours Truly۩ஜ─────╯",[sender])
+                               sendMention(to, "╭────ஜ۩Yours Truly۩ஜ─────╮\n│✆「O」 \n│✆「O」 \n│✆「/r/」 \n│✆「B-Bambang」\n│✆「ᴜsᴇʀ: @! 」\n╰────ஜ۩Yours Truly۩ஜ─────╯",[sender])
 
                         elif text.lower() == "mid":
                                cl.sendMessage(msg.to, msg._from)
@@ -1781,7 +1783,7 @@ def bot(op):
                                key = eval(msg.contentMetadata["MENTION"])
                                key1 = key["MENTIONEES"][0]["M"]
                                mi = cl.getContact(key1)
-                               cl.sendMessage(msg.to, "╔──────────────────╗\n│🔰ɴᴀᴍᴇ: "+str(mi.displayName)+"\n│🔰ᴍɪᴅ: " +key1+ "\n╚────ஜ۩B-Bambang۩ஜ─────╝")
+                               cl.sendMessage(msg.to, "MID: " +key1)
                                cl.sendMessage(msg.to, None, contentMetadata={'mid': key1}, contentType=13)
 
                         elif ("Info " in msg.text):
@@ -1820,7 +1822,7 @@ def bot(op):
                                pesan = text.replace(sep[0] + " ","")
                                saya = cl.getGroupIdsJoined()
                                for group in saya:
-                                   cl.sendMessage(group,"[🔳sʜᴀʀᴇ🔲]\n" + str(pesan))
+                                   cl.sendMessage(group, str(pesan))
 
                         elif cmd.startswith("gb: "):
                           if wait["selfbot"] == True:
@@ -2063,7 +2065,7 @@ def bot(op):
                                 url = msg.text.replace(sep[0] + " ","")                            
                                 cl.downloadFileURL(url,'path','video.mp4')
                                 settings["ChangeVideoProfilePicture"][msg._from] = True
-                                cl.sendMessage(msg.to, "ᴘʟᴇᴀsᴇ sᴇɴᴅ ʏᴏᴜʀ ɪᴍᴀɢᴇ ʙᴏs")
+                                cl.sendMessage(msg.to, "Kirim gambarnya kak...")
 
 #====================================================================   
                         elif 'like ' in text.lower():
@@ -2323,7 +2325,6 @@ def bot(op):
 
                         elif cmd == "sider on":
                           if wait["selfbot"] == True:
-                           if msg._from in admin:
                               try:
                                   tz = pytz.timezone("Asia/Jakarta")
                                   timeNow = datetime.now(tz=tz)
@@ -2339,7 +2340,6 @@ def bot(op):
 
                         elif cmd == "sider off":
                           if wait["selfbot"] == True:
-                           if msg._from in admin:
                               if msg.to in cctv['point']:
                                   tz = pytz.timezone("Asia/Jakarta")
                                   timeNow = datetime.now(tz=tz)
@@ -2559,7 +2559,6 @@ def bot(op):
                                 cl.sendMessage(msg.to, str(ret_))
 
                         elif cmd.startswith("lokasi: "):
-                          if msg._from in admin:
                             separate = msg.text.split(" ")
                             location = msg.text.replace(separate[0] + " ","")
                             with requests.session() as web:
@@ -2577,7 +2576,6 @@ def bot(op):
                                 cl.sendReplyMessage(msg.id,msg.to,str(ret_))
 
                         elif cmd.startswith("lirik: "):
-                           if msg._from in admin:
                                sep = msg.text.split(" ")
                                search = msg.text.replace(sep[0] + " ","")
                                params = {'songname': search}
@@ -2604,7 +2602,6 @@ def bot(op):
                                        cl.sendReplyMessage(msg.id,msg.to, "ʟɪʀɪᴋ ᴛɪᴅᴀᴋ ᴅɪ ᴛᴇᴍᴜᴋᴀɴ")
 
                         elif cmd.startswith("get-apk "):
-                          if msg._from in admin:
                             sep = msg.text.split(" ")
                             query = msg.text.replace(sep[0] + " ","")
                             cond = query.split("|")
@@ -2648,7 +2645,6 @@ def bot(op):
                                                 cl.sendMessage(to, str(ret_))
 
                         elif cmd.startswith("get-mimpi "):
-                          if msg._from in admin:
                             sep = msg.text.split(" ")
                             mimpi = msg.text.replace(sep[0] + " ","")  
                             with requests.session() as s:
@@ -2660,7 +2656,6 @@ def bot(op):
                                     cl.sendReplyMessage(msg.id,msg.to,ret_)
 
                         elif cmd.startswith("img food: "):
-                          if msg._from in admin:
                                 query = msg.text.replace("img food: ","")
                                 r = requests.get("https://cryptic-ridge-9197.herokuapp.com/api/imagesearch/" + query + "?offset=1")
                                 data=r.text
@@ -2670,7 +2665,6 @@ def bot(op):
                                         cl.sendImageWithURL(msg.to, str(food["url"]))
 
                         elif cmd.startswith("gimage: "):
-                          if msg._from in admin:
                             sep = msg.text.split(" ")
                             search = msg.text.replace(sep[0] + " ","")
                             url = "https://api.xeonwz.ga/api/image/google?q={}".format(urllib.parse.quote(search))
@@ -2706,7 +2700,6 @@ def bot(op):
                                 cl.sendMessage(to, str(ret_))
 
                         elif cmd.startswith("ytmp4: "):
-                          if msg._from in admin:
                             try:
                                 sep = msg.text.split(" ")
                                 textToSearch = msg.text.replace(sep[0] + " ","")
@@ -2741,7 +2734,6 @@ def bot(op):
                                 cl.sendMessage(msg.id,msg.to,str(e))
 
                         elif cmd.startswith("profileig: "):
-                          if msg._from in admin:
                             try:
                                 sep = msg.text.split(" ")
                                 instagram = msg.text.replace(sep[0] + " ","")
@@ -2764,7 +2756,6 @@ def bot(op):
                                     cl.sendMessage(msg.to, str(e))
 
                         elif cmd.startswith("cekdate: "):
-                          if msg._from in admin:
                             sep = msg.text.split(" ")
                             tanggal = msg.text.replace(sep[0] + " ","")
                             r=requests.get('https://script.google.com/macros/exec?service=AKfycbw7gKzP-WYV2F5mc9RaR7yE3Ve1yN91Tjs91hp_jHSE02dSv9w&nama=ervan&tanggal='+tanggal)
@@ -2872,7 +2863,7 @@ def bot(op):
                                   cl.sendMessage(msg.to, "http://line.me/ti/p/~" + msgs)
                                   cl.sendMessage(msg.to, None, contentMetadata={'mid': conn.mid}, contentType=13)
 
-                        elif cmd.startswith("spaminvid"):
+                        elif cmd.startswith("spaminvite"):
                           if wait["selfbot"] == True:
                             if msg._from in admin:
                               if 'MENTION' in msg.contentMetadata.keys()!=None:
@@ -2940,25 +2931,25 @@ def bot(op):
 
                         elif cmd == "reject":
                           if wait["selfbot"] == True:
-                            #if msg._from in admin:
+                            if msg._from in admin:
                               ginvited = cl.getGroupIdsInvited()
                               if ginvited != [] and ginvited != None:
                                   for gid in ginvited:
                                       cl.rejectGroupInvitation(gid)
-                                  cl.sendMessage(msg.to, "sᴜᴄᴄᴇss ʀᴇᴊᴇᴄᴛ: {} ɪɴᴠɪᴛᴇᴅ ɢʀᴏᴜᴘ".format(str(len(ginvited))))
+                                  cl.sendMessage(msg.to, "Jika itu permintaan kakak...".format(str(len(ginvited))))
                               else:
-                                  cl.sendMessage(msg.to, "ɴᴏᴛʜɪɴɢ ɪɴᴠɪᴛᴇᴅ ɢʀᴏᴜᴘ ʙᴏss")
+                                  cl.sendMessage(msg.to, "Tidak ada undangan grup saat ini :'(")
 
                         elif cmd == "accept":
                           if wait["selfbot"] == True:
-                           # if msg._from in :
+                            if msg._from in admin:
                               ginvited = cl.getGroupIdsInvited()
                               if ginvited != [] and ginvited != None:
                                   for gid in ginvited:
                                       cl.acceptGroupInvitation(gid)
-                                  cl.sendMessage(msg.to, "sᴜᴄᴄᴇss ᴀᴄᴄᴇᴘᴛ: {} ɪɴᴠɪᴛᴇᴅ ɢʀᴏᴜᴘ".format(str(len(ginvited))))
+                                  cl.sendMessage(msg.to, "Siap kak!!".format(str(len(ginvited))))
                               else:
-                                  cl.sendMessage(msg.to, "ɴᴏᴛʜɪɴɢ ɪɴᴠɪᴛᴇᴅ ɢʀᴏᴜᴘ ʙᴏss")
+                                  cl.sendMessage(msg.to, "Tidak ada undangan grup saat ini :'(")
 #=========== [ Add Image ] ============#
                         elif cmd.startswith("addimg "):
                           if msg._from in admin:
@@ -3170,12 +3161,12 @@ def bot(op):
                         elif cmd == "spaminvite on" or text.lower == 'spaminvite on':
                             if msg._from in admin:
                                 settings["SpamInvite"] = True
-                                cl.sendMessage(msg.to, "ᴋɪʀɪᴍ ᴋᴏɴᴛᴀᴋ ʏᴀɴɢ ᴍᴀᴜ ᴅɪ sᴘᴀᴍ ʙᴏs..")
+                                cl.sendMessage(msg.to, "Kirim kontak yang ingin dispam")
                                 
                         elif cmd == "spaminvite off" or text.lower() == 'spaminvite off':
                             if msg._from in admin:
                                 settings["Spaminvite"] = False
-                                cl.sendMessage(msg.to, "sᴘᴀᴍɪɴᴠɪᴛᴇ sᴜᴅᴀʜ ᴏғғ ʙᴏss")
+                                cl.sendMessage(msg.to, "Spam invite dinonaktifkan")
 
                         elif cmd == "unsend on" or text.lower() == 'unsend on':
                           if wait["selfbot"] == True:
@@ -3310,6 +3301,136 @@ def bot(op):
                                 cl.sendMessage(msg.to,"ᴀᴜᴛᴏʙʟᴏᴄᴋ ᴀᴅᴅ ᴅɪɴᴏɴᴀᴋᴛɪғᴋᴀɴ")
 
 #===========COMMAND BLACKLIST============#
+                        elif ("Talkban " in msg.text):
+                          if wait["selfbot"] == True:
+                            if msg._from in admin:
+                               key = eval(msg.contentMetadata["MENTION"])
+                               key["MENTIONEES"][0]["M"]
+                               targets = []
+                               for x in key["MENTIONEES"]:
+                                    targets.append(x["M"])
+                               for target in targets:
+                                       try:
+                                           wait["Talkblacklist"][target] = True
+                                           cl.sendMessage(msg.to,"Berhasil menambahkan blacklist")
+                                       except:
+                                           pass
+
+                        elif ("Untalkban " in msg.text):
+                          if wait["selfbot"] == True:
+                            if msg._from in admin:
+                               key = eval(msg.contentMetadata["MENTION"])
+                               key["MENTIONEES"][0]["M"]
+                               targets = []
+                               for x in key["MENTIONEES"]:
+                                    targets.append(x["M"])
+                               for target in targets:
+                                       try:
+                                           del wait["Talkblacklist"][target]
+                                           cl.sendMessage(msg.to,"Berhasil menghapus blacklist")
+                                       except:
+                                           pass
+
+                        elif cmd == "talkban:on" or text.lower() == 'talkban:on':
+                          if wait["selfbot"] == True:
+                            if msg._from in admin:
+                                wait["Talkwblacklist"] = True
+                                cl.sendText(msg.to,"Kirim kontaknya...")
+
+                        elif cmd == "untalkban:on" or text.lower() == 'untalkban:on':
+                          if wait["selfbot"] == True:
+                            if msg._from in admin:
+                                wait["Talkdblacklist"] = True
+                                cl.sendText(msg.to,"Kirim kontaknya...")
+
+                        elif ("Ban " in msg.text):
+                          if wait["selfbot"] == True:
+                            if msg._from in admin:
+                               key = eval(msg.contentMetadata["MENTION"])
+                               key["MENTIONEES"][0]["M"]
+                               targets = []
+                               for x in key["MENTIONEES"]:
+                                    targets.append(x["M"])
+                               for target in targets:
+                                       try:
+                                           wait["blacklist"][target] = True
+                                           cl.sendMessage(msg.to,"Berhasil menambahkan blacklist")
+                                       except:
+                                           pass
+
+                        elif ("Unban " in msg.text):
+                          if wait["selfbot"] == True:
+                            if msg._from in admin:
+                               key = eval(msg.contentMetadata["MENTION"])
+                               key["MENTIONEES"][0]["M"]
+                               targets = []
+                               for x in key["MENTIONEES"]:
+                                    targets.append(x["M"])
+                               for target in targets:
+                                       try:
+                                           del wait["blacklist"][target]
+                                           cl.sendMessage(msg.to,"Berhasil menghapus blacklist")
+                                       except:
+                                           pass
+
+                        elif cmd == "ban:on" or text.lower() == 'ban:on':
+                          if wait["selfbot"] == True:
+                            if msg._from in admin:
+                                wait["wblacklist"] = True
+                                cl.sendText(msg.to,"Kirim kontaknya...")
+
+                        elif cmd == "unban:on" or text.lower() == 'unban:on':
+                          if wait["selfbot"] == True:
+                            if msg._from in admin:
+                                wait["dblacklist"] = True
+                                cl.sendText(msg.to,"Kirim kontaknya...")
+
+                        elif cmd == "banlist" or text.lower() == 'banlist':
+                          if wait["selfbot"] == True:
+                            if msg._from in admin:
+                              if wait["blacklist"] == {}:
+                                cl.sendMessage(msg.to,"Tidak ada blacklist")
+                              else:
+                                ma = ""
+                                a = 0
+                                for m_id in wait["blacklist"]:
+                                    a = a + 1
+                                    end = '\n'
+                                    ma += str(a) + ". " +cl.getContact(m_id).displayName + "\n"
+                                cl.sendMessage(msg.to,"Daftar Blacklist\n\n"+ma+"\nTotal「%s」Blacklist User" %(str(len(wait["blacklist"]))))
+
+                        elif cmd == "talkbanlist" or text.lower() == 'talkbanlist':
+                          if wait["selfbot"] == True:
+                            if msg._from in admin:
+                              if wait["Talkblacklist"] == {}:
+                                cl.sendMessage(msg.to,"Tidak ada Talkban user")
+                              else:
+                                ma = ""
+                                a = 0
+                                for m_id in wait["Talkblacklist"]:
+                                    a = a + 1
+                                    end = '\n'
+                                    ma += str(a) + ". " +cl.getContact(m_id).displayName + "\n"
+                                cl.sendMessage(msg.to,"❧ĐPĶ Talkban User\n\n"+ma+"\nTotal「%s」Talkban User" %(str(len(wait["Talkblacklist"]))))
+
+                        elif cmd == "blc" or text.lower() == 'blc':
+                          if wait["selfbot"] == True:
+                            if msg._from in admin:
+                              if wait["blacklist"] == {}:
+                                    cl.sendMessage(msg.to,"Tidak ada blacklist")
+                              else:
+                                    ma = ""
+                                    for i in wait["blacklist"]:
+                                        ma = cl.getContact(i)
+                                        cl.sendMessage(msg.to, None, contentMetadata={'mid': i}, contentType=13)
+
+                        elif cmd == "clearban" or text.lower() == 'clearban':
+                          if wait["selfbot"] == True:
+                            if msg._from in admin:
+                              wait["blacklist"] = {}
+                              ragets = cl.getContacts(wait["blacklist"])
+                              mc = "「%i」User Blacklist" % len(ragets)
+                              cl.sendMessage(msg.to,"Sukses membersihkan " +mc)
 #===========ADMIN ADD============#
                         elif ("Adminadd " in msg.text):
                           if wait["selfbot"] == True:
@@ -3364,7 +3485,6 @@ def bot(op):
                                for x in key["MENTIONEES"]:
                                     targets.append(x["M"])
                                for target in targets:
-                                   if target not in Dpk:
                                        try:
                                            admin.remove(target)
                                            cl.sendMessage(msg.to,"Berhasil menghapus admin")
@@ -3379,7 +3499,6 @@ def bot(op):
                                for x in key["MENTIONEES"]:
                                     targets.append(x["M"])
                                for target in targets:
-                                   if target not in Dpk:
                                        try:
                                            staff.remove(target)
                                            cl.sendMessage(msg.to,"Berhasil menghapus admin")
@@ -3394,7 +3513,6 @@ def bot(op):
                                for x in key["MENTIONEES"]:
                                     targets.append(x["M"])
                                for target in targets:
-                                   if target not in Dpk:
                                        try:
                                            Bots.remove(target)
                                            cl.sendMessage(msg.to,"Berhasil menghapus admin")
@@ -3471,7 +3589,7 @@ def bot(op):
                            if wait["Timeline"] == True:
                               msg.contentType = 0
                               msg.text = "post URL\n" + msg.contentMetadata["postEndUrl"]
-                              cl.sendMessage(msg.to, "ghd ʟɪᴋᴇ ᴅᴏɴᴇ ʙᴏss")
+                              cl.sendMessage(msg.to, " ʟɪᴋᴇ ᴅᴏɴᴇ ʙᴏss")
 
                         elif 'Set pesan: ' in msg.text:
                            if msg._from in admin:
@@ -3480,7 +3598,7 @@ def bot(op):
                                   cl.sendMessage(msg.to, "ғᴀɪʟᴇᴅ ᴄʜᴀɴɢᴇ ᴍsɢ")
                               else:
                                   wait["message"] = spl
-                                  cl.sendMessage(msg.to, "「ᴍsɢ sᴍs」\nᴍᴇssᴀɢᴇ ᴄʜᴀɴɢᴇ ᴛᴏ:\n\n「{}」".format(str(spl)))
+                                  cl.sendMessage(msg.to, "「ᴍsɢ sᴍs」\nPesan telah diganti ke:\n\n「{}」".format(str(spl)))
 
                         elif 'Set welcome: ' in msg.text:
                            if msg._from in admin:
@@ -3489,7 +3607,7 @@ def bot(op):
                                   cl.sendMessage(msg.to, "ғᴀɪʟᴇᴅ ᴄʜᴀɴɢᴇ ᴍsɢ")
                               else:
                                   wait["welcome"] = spl
-                                  cl.sendMessage(msg.to, "「ᴡᴇʟᴄᴏᴍᴇ ᴍsɢ」ᴡᴇʟᴄᴏᴍᴇ ᴍsɢ ᴄʜᴀɴɢᴇ ᴛᴏ\n:\n\n「{}」".format(str(spl)))
+                                  cl.sendMessage(msg.to, "「ᴡᴇʟᴄᴏᴍᴇ ᴍsɢ」Welcome Message Changed to\n:\n\n「{}」".format(str(spl)))
 
                         elif 'Set respon: ' in msg.text:
                            if msg._from in admin:
